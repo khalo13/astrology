@@ -1,0 +1,19 @@
+{
+  // ✅ Ensure Copilot is enabled
+  "github.copilot.enable": {
+    "*": true
+  },
+  // ✅ Enable Copilot Chat selection scope
+  "github.copilot.chat.scopeSelection": true,
+  // ✅ Enable suggestions in chat
+  "github.copilot.nextEditSuggestions.enabled": true,
+  // ✅ Enable code search and temporal context for better chat relevance
+  "github.copilot.chat.codesearch.enabled": true,
+  "github.copilot.chat.editor.temporalContext.enabled": true,
+  // ✅ Ensure workspace trust is respected
+  "security.workspace.trust.enabled": true,
+  // Optional: Never auto-open parent folders as Git repos
+  "git.openRepositoryInParentFolders": "never",
+  "python.defaultInterpreterPath": "C:\\Users\\Love Khanna\\anaconda3\\envs\\sentiment_env\\python.exe",
+  "python.terminal.activateEnvironment": true
+}

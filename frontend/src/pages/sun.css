@@ -1,0 +1,57 @@
+.sun-positions-wrapper {
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background:transparent;
+  color: #333;
+}
+
+.sun-positions-wrapper h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #9d74f8;
+  
+}
+
+.chart-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.8rem;
+  justify-items: center;
+}
+
+.chart-card {
+  background: radial-gradient( #d2c0e6, #c99df7);
+  border: 1px solid #1e0136;
+  border-radius: 12px;
+  padding: 1.2rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.07);
+  text-align: center;
+  max-width: 320px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.chart-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.chart-card h3 {
+  font-size: 1.25rem;
+  color: #333;
+  margin-bottom: 0.75rem;
+  
+  padding-bottom: 0.4rem;
+}
+
+.chart-card p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #02000b;
+  margin: 0.5rem 0;
+}
+
+.chart-card p strong {
+  color: #430151;
+}

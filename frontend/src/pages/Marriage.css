@@ -1,0 +1,116 @@
+.mahurat-container {
+  max-width: 90%;
+  margin: 2rem auto;
+  padding: 40px 20px;
+  font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+  background: radial-gradient( #e6d1fb, #d5bde9);
+  color: #3e2c2c;
+  line-height: 1.7;
+  border-radius: 22px;
+  text-align: justify;
+}
+
+.mahurat-title {
+  text-align: center;
+  font-size: 2.8rem;
+  margin-bottom: 30px;
+  color: #6a1b9a;
+  font-weight: bold;
+  border-bottom: 2px solid #d1aaff;
+  padding-bottom: 10px;
+}
+
+section {
+  margin-bottom: 50px;
+  background: #fdf9f6;
+  padding: 30px;
+  border-left: 5px solid #ba68c8;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(106, 27, 154, 0.05);
+}
+
+section h2 {
+  font-size: 1.8rem;
+  color: #4a0072;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+section h3 {
+  font-size: 1.2rem;
+  color: #6a1b9a;
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+section p {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+section ul {
+  list-style: disc inside;
+  padding-left: 15px;
+}
+
+section ul li {
+  margin-bottom: 12px;
+}
+
+section ul li strong {
+  color: #45277b;
+  font-size: 1.1rem;
+}
+
+details {
+  background-color: #f7f1fc;
+  border: 1px solid #cba3e2;
+  border-radius: 6px;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+}
+
+details summary {
+  font-weight: bold;
+  cursor: pointer;
+  color: #5e2c91;
+  font-size: 1rem;
+}
+
+details ul {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+@media (max-width: 768px) {
+  .mahurat-container {
+    padding: 25px 10px;
+  }
+
+  .mahurat-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  section {
+    padding: 20px;
+  }
+
+  section h2 {
+    font-size: 1.4rem;
+  }
+
+  section h3 {
+    font-size: 1rem;
+  }
+
+  section p,
+  section ul li,
+  section ul li strong {
+    font-size: 0.95rem;
+  }
+
+  details summary {
+    font-size: 0.95rem;
+  }
+}

@@ -1,0 +1,514 @@
+
+
+def calculate_ascendant_ashtakavarga(astro_data, ascendant_longitude):
+    """
+    Calculate Mercury's Bhinnashtakavarga table per BPHS Chapter 66.
+    Returns a list of dicts (one per rashi) with bindus from each planet and total,
+    using Mercury's specific bindu distribution rules.
+    """
+
+    planet_names = ["Sun", "Moon", "Mars", "Mercury", "Jupiter", "Venus", "Saturn", "Ascendant"]
+    rashis = [
+        "Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo",
+        "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"
+    ]
+    sign_to_index = {name: idx for idx, name in enumerate(rashis)}
+
+    # Mercury's Bhinnashtakavarga bindu rules from each planet
+    bindu_rules = {
+        "Sun":       [3,4,6,10,11,12],
+        "Moon":      [3,6,10,11,12],
+        "Mars":      [1,3,6,10,11],
+        "Mercury":   [1,2,4,6,8],
+        "Jupiter":   [1,2,4,5,6],
+        "Venus":     [1,2,3,4,5,8,9],
+        "Saturn":    [1,3,4,6,10,11],
+        "Ascendant": [3,6,10,11]
+    }
+
+
+
+    def gives_bindu(planet_sign_idx, rashi_idx, houses):
+        return any((planet_sign_idx + h - 1) % 12 == rashi_idx for h in houses)
+
+    # Map planet names to sign indices
+    planet_sign_index = {}
+    for p in astro_data:
+        pname = p["planet"]
+        if pname in planet_names:
+            sign_idx = sign_to_index.get(p["sign"])
+            planet_sign_index[pname] = sign_idx
+
+    # Add Ascendant
+    asc_sign_idx = int(ascendant_longitude // 30) % 12
+    planet_sign_index["Ascendant"] = asc_sign_idx
+
+    # Build Bhinnashtakavarga table
+    table = []
+    for rashi_idx, rashi in enumerate(rashis):
+        row = {"Rashi": rashi}
+        total = 0
+        for pname in planet_names:
+            p_sign = planet_sign_index.get(pname)
+            if p_sign is None:
+                row[pname] = 0
+                continue
+            bindu = 1 if gives_bindu(p_sign, rashi_idx, bindu_rules[pname]) else 0
+            row[pname] = bindu
+            total += bindu
+        row["Total"] = total
+        table.append(row)
+
+    overall_total = sum(row["Total"] for row in table)
+    return table, overall_total
+
+
+def calculate_sun_ashtakavarga(astro_data, ascendant_longitude):
+    """
+    Calculate Sun's Bhinnashtakavarga table per BPHS Chapter 66.
+    Returns a list of dicts (one per rashi) with bindus from each planet and total.
+    """
+
+    planet_names = ["Sun", "Moon", "Mars", "Mercury", "Jupiter", "Venus", "Saturn", "Ascendant"]
+    rashis = [
+        "Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo",
+        "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"
+    ]
+    sign_to_index = {name: idx for idx, name in enumerate(rashis)}
+
+    bindu_rules = {
+        "Sun":       [1, 2, 4,7, 8,9, 10, 11],
+        "Moon":      [3, 6, 10, 11],
+        "Mars":      [1, 2, 4, 7, 8, 9, 10, 11],
+        "Mercury":   [3, 5, 6, 9, 10, 11, 12],
+        "Jupiter":   [5, 6, 9, 11],
+        "Venus":     [6, 7, 12],
+        "Saturn":    [1, 2, 4, 7, 8, 9, 10, 11],
+        "Ascendant": [3, 4, 6, 10, 11, 12]
+    }
+
+
+    def gives_bindu(planet_sign_idx, rashi_idx, houses):
+        return any((planet_sign_idx + h-1) % 12 == rashi_idx for h in houses)
+
+    # Use sign name directly instead of recalculating from longitude
+    planet_sign_index = {}
+    for p in astro_data:
+        pname = p["planet"]
+        if pname in planet_names:
+            sign_idx = sign_to_index.get(p["sign"])
+            planet_sign_index[pname] = sign_idx
+
+    # Add Ascendant
+    asc_sign_idx = int(ascendant_longitude // 30) % 12
+    planet_sign_index["Ascendant"] = asc_sign_idx
+
+    table = []
+    for rashi_idx, rashi in enumerate(rashis):
+        row = {"Rashi": rashi}
+        total = 0
+        for pname in planet_names:
+            p_sign = planet_sign_index.get(pname)
+            if p_sign is None:
+                row[pname] = 0
+                continue
+            bindu = 1 if gives_bindu(p_sign, rashi_idx, bindu_rules[pname]) else 0
+            row[pname] = bindu
+            total += bindu
+        row["Total"] = total
+        table.append(row)
+
+    overall_total = sum(row["Total"] for row in table)
+    return table, overall_total
+
+def calculate_moon_ashtakavarga(astro_data, ascendant_longitude):
+    """
+    Calculate Moon's Bhinnashtakavarga table per BPHS Chapter 66.
+    Returns a list of dicts (one per rashi) with bindus from each planet and total,
+    using Moon's bindu distribution rules.
+    """
+
+    planet_names = ["Sun", "Moon", "Mars", "Mercury", "Jupiter", "Venus", "Saturn", "Ascendant"]
+    rashis = [
+        "Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo",
+        "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"
+    ]
+    sign_to_index = {name: idx for idx, name in enumerate(rashis)}
+
+    # Moon's specific bindu rules for Ashtakavarga (house numbers relative to planet's sign)
+    bindu_rules = {
+        "Sun":       [3,6,7,8,10,11],
+        "Moon":      [1,3,6,7,10,11],   # Moon's own bindu pattern
+        "Mars":      [2,3,5,6,9,10,11],
+        "Mercury":   [1,3,4,5,7,8,10,11],
+        "Jupiter":   [1,4,7,8,10,11,12],
+        "Venus":     [3,4,5,7,9,10,11],
+        "Saturn":    [3,5,6,11],
+        "Ascendant": [3, 6,10,11]
+    }
+
+    def gives_bindu(planet_sign_idx, rashi_idx, houses):
+        # Subtract 1 to convert 1-based houses to 0-based index
+        return any((planet_sign_idx + h - 1) % 12 == rashi_idx for h in houses)
+
+    # Use sign name directly instead of recalculating from longitude
+    planet_sign_index = {}
+    for p in astro_data:
+        pname = p["planet"]
+        if pname in planet_names:
+            sign_idx = sign_to_index.get(p["sign"])
+            planet_sign_index[pname] = sign_idx
+
+    # Add Ascendant sign index
+    asc_sign_idx = int(ascendant_longitude // 30) % 12
+    planet_sign_index["Ascendant"] = asc_sign_idx
+
+    table = []
+    for rashi_idx, rashi in enumerate(rashis):
+        row = {"Rashi": rashi}
+        total = 0
+        for pname in planet_names:
+            p_sign = planet_sign_index.get(pname)
+            if p_sign is None:
+                row[pname] = 0
+                continue
+            bindu = 1 if gives_bindu(p_sign, rashi_idx, bindu_rules[pname]) else 0
+            row[pname] = bindu
+            total += bindu
+        row["Total"] = total
+        table.append(row)
+
+    overall_total = sum(row["Total"] for row in table)
+    return table, overall_total
+
+def calculate_mars_ashtakavarga(astro_data, ascendant_longitude):
+    """
+    Calculate Mars's Bhinnashtakavarga table per BPHS Chapter 66.
+    Returns a list of dicts (one per rashi) with bindus from each planet and total,
+    using Mars's bindu distribution rules.
+    """
+
+    planet_names = ["Sun", "Moon", "Mars", "Mercury", "Jupiter", "Venus", "Saturn", "Ascendant"]
+    rashis = [
+        "Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo",
+        "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"
+    ]
+    sign_to_index = {name: idx for idx, name in enumerate(rashis)}
+
+    # Bindu rules for Mars's Ashtakavarga (houses from each planet's own sign)
+    bindu_rules = {
+        "Saturn":    [1, 4, 7, 8, 9, 10, 11],
+        "Jupiter":   [6, 10, 11, 12],
+        "Mars":      [1, 2, 4,7, 8, 10, 11],     # Mars's own contribution
+        "Sun":       [3, 5, 6, 10, 11],
+        "Venus":     [6, 8, 11, 12],
+        "Mercury":   [3, 5, 6, 11],
+        "Moon":      [3, 6, 11],
+        "Ascendant": [1, 3, 6, 10, 11]
+    }
+
+    def gives_bindu(planet_sign_idx, rashi_idx, houses):
+        return any((planet_sign_idx + h - 1) % 12 == rashi_idx for h in houses)
+
+    # Extract sign index from astro_data
+    planet_sign_index = {}
+    for p in astro_data:
+        pname = p["planet"]
+        if pname in planet_names:
+            sign_idx = sign_to_index.get(p["sign"])
+            planet_sign_index[pname] = sign_idx
+
+    # Add Ascendant
+    asc_sign_idx = int(ascendant_longitude // 30) % 12
+    planet_sign_index["Ascendant"] = asc_sign_idx
+
+    # Build the table
+    table = []
+    for rashi_idx, rashi in enumerate(rashis):
+        row = {"Rashi": rashi}
+        total = 0
+        for pname in planet_names:
+            p_sign = planet_sign_index.get(pname)
+            if p_sign is None:
+                row[pname] = 0
+                continue
+            bindu = 1 if gives_bindu(p_sign, rashi_idx, bindu_rules[pname]) else 0
+            row[pname] = bindu
+            total += bindu
+        row["Total"] = total
+        table.append(row)
+
+    overall_total = sum(row["Total"] for row in table)
+    return table, overall_total
+
+def calculate_mercury_ashtakavarga(astro_data, ascendant_longitude):
+    """
+    Calculate Mercury's Bhinnashtakavarga table per BPHS Chapter 66.
+    Returns a list of dicts (one per rashi) with bindus from each planet and total,
+    using Mercury's specific bindu distribution rules.
+    """
+
+    planet_names = ["Sun", "Moon", "Mars", "Mercury", "Jupiter", "Venus", "Saturn", "Ascendant"]
+    rashis = [
+        "Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo",
+        "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"
+    ]
+    sign_to_index = {name: idx for idx, name in enumerate(rashis)}
+
+    # Mercury's Bhinnashtakavarga bindu rules from each planet
+    bindu_rules = {
+        "Saturn":    [1, 2, 4, 7, 8, 9, 10, 11],            # 8
+        "Jupiter":   [6, 8, 11, 12],                        # 4
+        "Mars":      [1, 2, 4, 7, 8, 9, 10, 11],            # 8
+        "Sun":       [5, 6, 9, 11, 12],                     # 5
+        "Venus":     [1, 2, 3, 4, 5, 8, 9, 11],             # 8
+        "Mercury":   [1, 3, 5, 6, 9, 10, 11, 12],           # 8
+        "Moon":      [2, 4, 6, 8, 10, 11],                  # 6
+        "Ascendant": [1, 2, 4, 6, 8, 10, 11]                # 7
+    }
+
+    def gives_bindu(planet_sign_idx, rashi_idx, houses):
+        return any((planet_sign_idx + h - 1) % 12 == rashi_idx for h in houses)
+
+    # Map planet names to sign indices
+    planet_sign_index = {}
+    for p in astro_data:
+        pname = p["planet"]
+        if pname in planet_names:
+            sign_idx = sign_to_index.get(p["sign"])
+            planet_sign_index[pname] = sign_idx
+
+    # Add Ascendant
+    asc_sign_idx = int(ascendant_longitude // 30) % 12
+    planet_sign_index["Ascendant"] = asc_sign_idx
+
+    # Build Bhinnashtakavarga table
+    table = []
+    for rashi_idx, rashi in enumerate(rashis):
+        row = {"Rashi": rashi}
+        total = 0
+        for pname in planet_names:
+            p_sign = planet_sign_index.get(pname)
+            if p_sign is None:
+                row[pname] = 0
+                continue
+            bindu = 1 if gives_bindu(p_sign, rashi_idx, bindu_rules[pname]) else 0
+            row[pname] = bindu
+            total += bindu
+        row["Total"] = total
+        table.append(row)
+
+    overall_total = sum(row["Total"] for row in table)
+    return table, overall_total
+
+def calculate_jupiter_ashtakavarga(astro_data, ascendant_longitude):
+    """
+    Calculate Mercury's Bhinnashtakavarga table per BPHS Chapter 66.
+    Returns a list of dicts (one per rashi) with bindus from each planet and total,
+    using Mercury's specific bindu distribution rules.
+    """
+
+    planet_names = ["Sun", "Moon", "Mars", "Mercury", "Jupiter", "Venus", "Saturn", "Ascendant"]
+    rashis = [
+        "Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo",
+        "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"
+    ]
+    sign_to_index = {name: idx for idx, name in enumerate(rashis)}
+
+    # Mercury's Bhinnashtakavarga bindu rules from each planet
+    bindu_rules = {
+        "Sun":       [1,2,3,4,7, 8, 9, 10, 11],
+        "Moon":      [2,5,7,9,11],
+        "Mars":      [1, 2, 4, 7, 8, 10, 11],
+        "Mercury":   [1,2,4,5,6,9,10,11],
+        "Jupiter":   [1,2,3,4,7,8,10,11],
+        "Venus":     [2,5,6,9,10,11],
+        "Saturn":    [3,5,6,12],
+        "Ascendant": [1,2,4,5,6,7,9,10,11]
+    }
+
+
+
+    def gives_bindu(planet_sign_idx, rashi_idx, houses):
+        return any((planet_sign_idx + h - 1) % 12 == rashi_idx for h in houses)
+
+    # Map planet names to sign indices
+    planet_sign_index = {}
+    for p in astro_data:
+        pname = p["planet"]
+        if pname in planet_names:
+            sign_idx = sign_to_index.get(p["sign"])
+            planet_sign_index[pname] = sign_idx
+
+    # Add Ascendant
+    asc_sign_idx = int(ascendant_longitude // 30) % 12
+    planet_sign_index["Ascendant"] = asc_sign_idx
+
+    # Build Bhinnashtakavarga table
+    table = []
+    for rashi_idx, rashi in enumerate(rashis):
+        row = {"Rashi": rashi}
+        total = 0
+        for pname in planet_names:
+            p_sign = planet_sign_index.get(pname)
+            if p_sign is None:
+                row[pname] = 0
+                continue
+            bindu = 1 if gives_bindu(p_sign, rashi_idx, bindu_rules[pname]) else 0
+            row[pname] = bindu
+            total += bindu
+        row["Total"] = total
+        table.append(row)
+
+    overall_total = sum(row["Total"] for row in table)
+    return table, overall_total
+
+def calculate_venus_ashtakavarga(astro_data, ascendant_longitude):
+    """
+    Calculate Mercury's Bhinnashtakavarga table per BPHS Chapter 66.
+    Returns a list of dicts (one per rashi) with bindus from each planet and total,
+    using Mercury's specific bindu distribution rules.
+    """
+
+    planet_names = ["Sun", "Moon", "Mars", "Mercury", "Jupiter", "Venus", "Saturn", "Ascendant"]
+    rashis = [
+        "Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo",
+        "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"
+    ]
+    sign_to_index = {name: idx for idx, name in enumerate(rashis)}
+
+    # Mercury's Bhinnashtakavarga bindu rules from each planet
+    bindu_rules = {
+        "Saturn":    [3, 4, 5, 8, 9, 10, 11],
+        "Jupiter":   [5, 8, 9, 10,11 ],
+        "Mars":      [3, 4, 6, 9, 11, 12],
+        "Sun":       [8, 11, 12],
+        "Venus":     [1, 2, 3, 4, 5, 8, 9, 10, 11],
+        "Mercury":   [3, 5, 6,9,11],
+        "Moon":      [1, 2, 3, 4, 5, 8, 9, 11, 12],
+        "Ascendant": [1, 2, 3, 4, 5, 8, 9, 11]
+    }
+
+
+    def gives_bindu(planet_sign_idx, rashi_idx, houses):
+        return any((planet_sign_idx + h - 1) % 12 == rashi_idx for h in houses)
+
+    # Map planet names to sign indices
+    planet_sign_index = {}
+    for p in astro_data:
+        pname = p["planet"]
+        if pname in planet_names:
+            sign_idx = sign_to_index.get(p["sign"])
+            planet_sign_index[pname] = sign_idx
+
+    # Add Ascendant
+    asc_sign_idx = int(ascendant_longitude // 30) % 12
+    planet_sign_index["Ascendant"] = asc_sign_idx
+
+    # Build Bhinnashtakavarga table
+    table = []
+    for rashi_idx, rashi in enumerate(rashis):
+        row = {"Rashi": rashi}
+        total = 0
+        for pname in planet_names:
+            p_sign = planet_sign_index.get(pname)
+            if p_sign is None:
+                row[pname] = 0
+                continue
+            bindu = 1 if gives_bindu(p_sign, rashi_idx, bindu_rules[pname]) else 0
+            row[pname] = bindu
+            total += bindu
+        row["Total"] = total
+        table.append(row)
+
+    overall_total = sum(row["Total"] for row in table)
+    return table, overall_total
+
+def calculate_saturn_ashtakavarga(astro_data, ascendant_longitude):
+    """
+    Calculate Mercury's Bhinnashtakavarga table per BPHS Chapter 66.
+    Returns a list of dicts (one per rashi) with bindus from each planet and total,
+    using Mercury's specific bindu distribution rules.
+    """
+
+    planet_names = ["Sun", "Moon", "Mars", "Mercury", "Jupiter", "Venus", "Saturn", "Ascendant"]
+    rashis = [
+        "Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo",
+        "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"
+    ]
+    sign_to_index = {name: idx for idx, name in enumerate(rashis)}
+
+    # Mercury's Bhinnashtakavarga bindu rules from each planet
+    bindu_rules = {
+        "Sun":       [1,2,4,7,8,10,11],
+        "Moon":      [3,6,11],
+        "Mars":      [3,5,6,10,11,12],
+        "Mercury":   [6,8,9,10,11,12],
+        "Jupiter":   [5,6,11,12],
+        "Venus":     [6,11,12],
+        "Saturn":    [3,5,6,11],
+        "Ascendant": [1,3,4,6,10,11]
+    }
+
+
+
+    def gives_bindu(planet_sign_idx, rashi_idx, houses):
+        return any((planet_sign_idx + h - 1) % 12 == rashi_idx for h in houses)
+
+    # Map planet names to sign indices
+    planet_sign_index = {}
+    for p in astro_data:
+        pname = p["planet"]
+        if pname in planet_names:
+            sign_idx = sign_to_index.get(p["sign"])
+            planet_sign_index[pname] = sign_idx
+
+    # Add Ascendant
+    asc_sign_idx = int(ascendant_longitude // 30) % 12
+    planet_sign_index["Ascendant"] = asc_sign_idx
+
+    # Build Bhinnashtakavarga table
+    table = []
+    for rashi_idx, rashi in enumerate(rashis):
+        row = {"Rashi": rashi}
+        total = 0
+        for pname in planet_names:
+            p_sign = planet_sign_index.get(pname)
+            if p_sign is None:
+                row[pname] = 0
+                continue
+            bindu = 1 if gives_bindu(p_sign, rashi_idx, bindu_rules[pname]) else 0
+            row[pname] = bindu
+            total += bindu
+        row["Total"] = total
+        table.append(row)
+
+    overall_total = sum(row["Total"] for row in table)
+    return table, overall_total
+
+
+ "ascendant_ashtakavarga": calculate_ascendant_ashtakavarga(
+                astro_data, ascendant["ascendant_longitude"]),
+            "sun_ashtakavarga": calculate_sun_ashtakavarga(
+                astro_data, ascendant["ascendant_longitude"]
+            ),
+            "moon_ashtakavarga": calculate_moon_ashtakavarga(
+                astro_data, ascendant["ascendant_longitude"]),
+            
+            "mars_ashtakavarga": calculate_mars_ashtakavarga(
+                astro_data, ascendant["ascendant_longitude"]
+            ),
+            "mercury_ashtakavarga": calculate_mercury_ashtakavarga(
+                astro_data, ascendant["ascendant_longitude"]
+            ),
+            "jupiter_ashtakavarga": calculate_jupiter_ashtakavarga(
+                astro_data, ascendant["ascendant_longitude"]
+            ),
+            "venus_ashtakavarga": calculate_venus_ashtakavarga(
+                astro_data, ascendant["ascendant_longitude"]
+            ),
+            "saturn_ashtakavarga": calculate_saturn_ashtakavarga(
+                astro_data, ascendant["ascendant_longitude"]
+            ),
+            
+         

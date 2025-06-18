@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "@react-google-maps/api": "^2.20.6",
+    "bcrypt": "^6.0.0",
+    "rss-parser": "^3.13.0",
+    "three": "^0.177.0",
+    "use-debounce": "^10.0.4"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.4",
+    "tailwindcss": "^4.1.8"
+  },
+  "name": "tarak",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}

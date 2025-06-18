@@ -1,0 +1,338 @@
+.rashi-layout {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  width: 90%;
+  margin: 30px auto;
+  padding: 25px;
+  background: radial-gradient( #b0a3c1, #a487c3);
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(58, 66, 98, 0.6);
+  color: #e0e0f0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  backdrop-filter: blur(10px);
+}
+
+.rashi-container {
+  flex: 2;
+  padding: 0 20px;
+  max-width: 500px;
+
+}
+
+.back-button {
+  background-color: #9120e8;
+  border: none;
+  color: #a8b0ff;
+  font-weight: 600;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.back-button:hover {
+  background-color: #3b3f66;
+  outline: none;
+}
+
+.rashi-select {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 25px;
+  background-color: #9120e8;
+  color: #e0e0f0;
+  cursor: pointer;
+  box-shadow: inset 0 0 5px #4e54c8;
+  transition: background-color 0.3s ease;
+}
+
+.rashi-select:hover,
+.rashi-select:focus {
+  background-color: #3b3f66;
+  outline: none;
+}
+
+.rashi-container h1 {
+  font-size: 2.8rem;
+
+  text-align: center;
+
+  text-shadow: 1px 1px 3px #010314;
+}
+
+.rashi-container img {
+  max-width: 355px;
+  min-width: 355px;
+  margin: 25px 55px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+}
+
+.rashi-container p {
+  font-size: 1.05rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  text-align: justify;
+  color: black;
+}
+
+.rashi-container h2 {
+  font-size: 1.8rem;
+  margin-top: 30px;
+  margin-bottom: 12px;
+  font-weight: 700;
+
+  padding-bottom: 6px;
+}
+
+.rashi-container ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.3rem;
+  padding-left: 0;
+  margin-bottom: 25px;
+  color: black;
+  justify-content: center;
+}
+
+.rashi-container ul li {
+  margin-bottom: 8px;
+  font-size: 1.05rem;
+  text-shadow: 0 0 2px rgba(58, 66, 98, 0.6);
+}
+
+.functional-zodiac-btn {
+  border-radius: 22px;
+  padding: 0.9rem;
+  min-width: 13px;
+  max-width: 130px;
+  border: 0.01em solid rgb(1, 63, 70);
+  background: rgb(237, 217, 236);
+  font: 16px "times-new-roman";
+}
+
+.functional-zodiac-btn:hover {
+  transform: scale(1.3);
+  transition: transform 0.22s ease-in-out;
+  border: 0.01em solid rgb(1, 63, 70);
+  background: rgb(187, 211, 233);
+}
+
+.horoscope-section {
+  flex: 1;
+
+  border-radius: 12px;
+  padding: 20px;
+
+  height: fit-content;
+}
+
+.horoscope-section h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 1.6rem;
+  color: #ffddff;
+}
+
+.horoscope-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.horoscope-btn {
+  flex: 1;
+  background-color: #9120e8;
+  border: none;
+  color: #e0e0f0;
+  padding: 31px;
+
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.horoscope-btn:hover,
+.horoscope-btn:focus {
+  background-color: #4e3691;
+}
+
+.rashi-category-columns {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.rashi-category-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.rashi-item {
+  display: flex;
+  gap: 1rem;
+  text-align: justify;
+  background: linear-gradient(to right, rgb(190, 210, 241), #cfb5f6);
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease;
+}
+.section-title {
+  position: relative;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+.zodiac-chakra-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* spacing between lines and star */
+  width: 75%; /* total width of divider container */
+  margin: 0 auto 13px; /* center horizontally with margin below */
+  user-select: none;
+  color: #9120e8; /* star color */
+  font-size: 1.2rem;
+  font-weight: 700;
+  position: relative;
+}
+
+.zodiac-chakra-divider::before,
+.zodiac-chakra-divider::after {
+  content: "";
+  flex-grow: 1;
+  height: 1px;
+  background-color: #9120e8; /* line color same as star */
+  border-radius: 1px;
+}
+.zodiac-chakra-divider span{
+  color: rgb(5, 2, 67);
+}
+
+
+.rashi-item:hover {
+  transform: translateY(-4px);
+}
+
+.rashi-item img {
+  width: 58px;
+  height: 76px;
+  object-fit: contain;
+}
+
+.rashi-item h4 {
+  margin: 0 0 0.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #222;
+}
+
+.rashi-item p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+@media (max-width: 768px) {
+  .rashi-layout {
+    flex-direction: column;
+    padding: 15px;
+    gap: 1.5rem;
+    width: 95%;
+  }
+
+  .rashi-container {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .rashi-container h1 {
+    font-size: 2rem;
+  }
+
+  .rashi-container img {
+    max-width: 100%;
+    min-width: auto;
+    width: 100%;
+    margin: 20px auto;
+    display: block;
+  }
+
+  .rashi-container p,
+  .rashi-container ul li {
+    font-size: 0.95rem;
+  }
+
+  .rashi-container h2 {
+    font-size: 1.4rem;
+  }
+
+  .functional-zodiac-btn {
+    font-size: 14px;
+    padding: 0.6rem;
+    max-width: 100%;
+  }
+
+  .horoscope-section {
+    padding: 15px;
+  }
+
+  .horoscope-section h2 {
+    font-size: 1.4rem;
+  }
+
+  .horoscope-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .horoscope-btn {
+    padding: 20px;
+    font-size: 0.95rem;
+  }
+
+  .rashi-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .rashi-item img {
+    margin-bottom: 10px;
+  }
+
+  .rashi-item h4 {
+    font-size: 1rem;
+  }
+
+  .rashi-item p {
+    font-size: 0.85rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .zodiac-chakra-divider {
+    width: 90%;
+    font-size: 1rem;
+  }
+}

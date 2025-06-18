@@ -1,0 +1,681 @@
+/* Vedic Astrology Styled Numerology Calculator */
+.numerology-container {
+
+  margin: 2rem auto;
+
+
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(74, 20, 140, 0.15);
+  font-family: 'Georgia', serif;
+  color: #3e2723;
+  transition: all 0.3s ease-in-out;
+}
+
+.number-form-section {
+  align-items: center;
+}
+
+.number-form {
+  width: 35%;
+  background: #c9b7f1;
+  border: 1px solid #fbc02d;
+  border-radius: 14px;
+  padding: 1.5rem;
+  margin: 0 31rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+input[type="text"],
+input[type="date"] {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #d1c4e9;
+  border-radius: 10px;
+  font-size: 1rem;
+  background: #f3e5f5;
+  color: #4e342e;
+  transition: border 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus {
+  border-color: #8e24aa;
+  box-shadow: 0 0 0 3px rgba(142, 36, 170, 0.15);
+  outline: none;
+}
+
+.numerology-container h2,
+.numerology-container h3 {
+  color: #4a148c;
+  margin-bottom: 1%;
+  text-align: center;
+  font-size: 2rem;
+}
+
+button[type="submit"],
+.reset-button {
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  background-color: #4a148c;
+  color: #fff8e1;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button[type="submit"]:hover,
+.reset-button:hover {
+  background-color: #311b92;
+}
+
+.reset-button {
+  float: right;
+  background-color: #f3e5f5;
+  color: #4a148c;
+}
+
+.summary-grid {
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1rem 0 2rem;
+}
+
+.summary-item {
+  background-color: #ffe0f7;
+  padding: 0.8rem;
+  border-left: 5px solid #ffb300;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+
+}
+
+.summary-item.full-width {
+  grid-column: 1 / -1;
+}
+
+.flex-row {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.error-message {
+  color: #c62828;
+  background: #ffebee;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  margin-top: 1rem;
+  border: 1px solid #ef9a9a;
+}
+
+/* LIFE PATH */
+.life-path-section {
+  background-color: #f3e5f5;
+  border: 1px solid #ce93d8;
+  border-left: 6px solid #8e24aa;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
+  font-family: 'Georgia', serif;
+}
+
+.life-path-section h3 {
+  color: #6a1b9a;
+  margin-bottom: 0.5rem;
+}
+
+.life-path-section h4 {
+  color: #4a148c;
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+  text-align: center;
+}
+
+.life-path-section p {
+  margin: 0.5rem 0;
+  line-height: 1.6;
+  color: #4e342e;
+}
+
+.life-path-insight-section {
+  background-color: #ede7f6;
+  border: 1px solid #b39ddb;
+  border-left: 6px solid #5e35b1;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
+}
+
+.life-path-insight-section h3 {
+  color: #512da8;
+  margin-bottom: 0.5rem;
+}
+
+.life-path-insight-section h4 {
+  color: #311b92;
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+  text-align: center;
+}
+
+.life-path-insight-section p {
+  margin: 0.5rem 0;
+  line-height: 1.6;
+  color: #3e2723;
+}
+
+.life-path-insight-section .flex-row {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.life-path-insight-section .flex-row>div {
+  flex: 1;
+  min-width: 240px;
+  background-color: #f3e5f5;
+  border: 1px dashed #9575cd;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.life-path-insight-section ul {
+  padding-left: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+.life-path-insight-section li {
+  margin-bottom: 0.4rem;
+  color: #4e342e;
+}
+
+
+.birth-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.birth-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #fce4ec;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  border-left: 4px solid #ab47bc;
+}
+
+.birth-label {
+  font-weight: bold;
+  min-width: 40px;
+  color: #6a1b9a;
+}
+
+.birth-digits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  font-family: 'Courier New', monospace;
+  color: #4e342e;
+}
+
+.birth-digits .digit {
+  background-color: #f8bbd0;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+.birth-total-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.birth-total {
+  background-color: #ede7f6;
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  border: 1px solid #d1c4e9;
+  color: #4a148c;
+  font-weight: bold;
+}
+
+.plus-sign {
+  font-size: 1.4rem;
+  color: #6a1b9a;
+  font-weight: bold;
+}
+
+.life-path-final-sum {
+  margin: 0.8rem 0;
+  font-size: 1.2rem;
+  color: #311b92;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+}
+
+.life-path-final-digit {
+  font-size: 1.3rem;
+  color: #4a148c;
+  background-color: #ede7f6;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  display: flex;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  justify-content: center;
+}
+
+.birth-line-heading,
+.birth-line-values {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #4a148c;
+  margin-top: 0.5rem;
+  margin-bottom: 0.2rem;
+}
+
+.birth-line-values {
+  font-family: 'Courier New', monospace;
+  color: #3e2723;
+}
+
+/* DESTINY NUMBER */
+.destiny-number-section {
+  background-color: #e8e1ff;
+  border: 1px solid #b482ff;
+  border-left: 6px solid #782dfb;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  font-family: 'Georgia', serif;
+  color: #4e342e;
+}
+
+.destiny-number-section h3 {
+  color: #6800e6;
+  margin-bottom: 1rem;
+}
+
+.destiny-number-section h4 {
+  color: #6b0cbf;
+  margin-top: 1.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.destiny-number-section p {
+  margin: 0.5rem 0;
+  line-height: 1.6;
+}
+
+.name-breakdown {
+  margin-bottom: 1.2rem;
+  font-family: 'Courier New', monospace;
+  font-size: 1rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.name-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+}
+
+.first-name {
+  background-color: #fce4ec;
+  /* light pink */
+}
+
+.last-name {
+  background-color: #e8f5e9;
+  /* light green */
+}
+
+.letter,
+.digit {
+
+
+  border-radius: 4px;
+  color: #4e342e;
+  font-weight: bold;
+}
+
+.name-total-line {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+  justify-content: center;
+}
+
+.name-total {
+  font-size: 1.1rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.plus-sign {
+  font-size: 1.5rem;
+  color: #6a1b9a;
+}
+
+
+.name-final-sum,
+.name-final-digit {
+  background-color: #ede7f6;
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  margin-top: 0.4rem;
+  width: 100%;
+  font-weight: bold;
+  color: #4527a0;
+  justify-content: center;
+  display: flex;
+}
+
+.plus-sign {
+  font-size: 1.5rem;
+  color: #6a1b9a;
+  margin: 0.5rem 0;
+}
+
+/* PERSONALITY NUMBER */
+.personality-number-section {
+  background-color: #f3f1f8;
+  border: 1px solid #ce93d8;
+  border-left: 6px solid #8e24aa;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.personality-number-section h3 {
+  color: #6a1b9a;
+}
+
+.personality-number-section h4 {
+  color: #4a148c;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.personality-number-section p {
+  margin: 0.4rem 0;
+  color: #3e2723;
+  line-height: 1.6;
+}
+
+.personality-number-section .flex-row>div {
+  flex: 1;
+  min-width: 240px;
+  background-color: #f8eaf6;
+  border: 1px dashed #ba68c8;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.personality-number-section ul {
+  padding-left: 1.2rem;
+}
+
+.personality-number-section li {
+  color: #4e342e;
+  margin-bottom: 0.4rem;
+}
+
+/* EXPRESSION NUMBER */
+.expression-number-section {
+  background-color: #f1e6fd;
+  border: 1px solid #bb80ff;
+  border-left: 6px solid #2c00ef;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.expression-number-section h3 {
+  color: #4900e6;
+}
+
+.expression-number-section h4 {
+  color: #4a148c;
+
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.expression-number-section p {
+  margin: 0.4rem 0;
+  color: #4e342e;
+  line-height: 1.6;
+}
+
+.expression-number-section .flex-row>div {
+  flex: 1;
+  min-width: 240px;
+  background-color: #e8e1ff;
+  border: 1px dashed #ffb74d;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.expression-number-section ul {
+  padding-left: 1.2rem;
+}
+
+.expression-number-section li {
+  color: #3e2723;
+  margin-bottom: 0.4rem;
+}
+
+.what-why-numerology {
+  display: flex;
+  text-align: justify;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-top: 3.1rem;
+  background-color: #c9b7f1;
+  padding: 2rem;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  width: 100%;
+}
+
+.image-column {
+
+  justify-content: center;
+  align-items: center;
+
+}
+
+.number-img-1 {
+  width: 22rem;
+
+  height: auto;
+  border-radius: 12px;
+
+
+}
+
+
+.text-columns-container .column {
+  flex: 1 1 45%;
+
+  padding: 1.5rem;
+
+  font-family: 'Georgia', serif;
+  color: #4e342e;
+}
+
+.text-columns-container .column h3 {
+  color: #6a1b9a;
+  margin-bottom: 0.5rem;
+}
+
+.text-columns-container .column p {
+  line-height: 1.7;
+}
+
+.text-columns-container {
+  display: flex;
+  justify-content: space-between;
+
+  border-radius: 12px;
+  padding: 2rem;
+
+  font-family: 'Georgia', serif;
+  color: #4e342e;
+  gap: 2rem;
+  position: relative;
+
+}
+
+
+.text-columns-container::before {
+  content: "";
+  position: absolute;
+  top: 10%;
+  bottom: 10%;
+  left: 50%;
+  width: 1px;
+  background: repeating-linear-gradient(to bottom,
+      #8e24aa,
+      #8e24aa 4px,
+      transparent 4px,
+      transparent 8px);
+  transform: translateX(-50%);
+}
+
+.column h3 {
+  color: #6a1b9a;
+  margin-bottom: 0.6rem;
+  font-size: 2rem;
+}
+
+.column p {
+  line-height: 1.7;
+  font-size: 1.3rem;
+}
+
+.how-numerology {
+  background: #f9e0ff;
+  padding: 2rem;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  font-family: 'Georgia', serif;
+  color: #4e342e;
+}
+
+.how-columns {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.text-column {
+  flex: 1 1 55%;
+  margin: 1rem;
+  font-size: 1.3rem;
+}
+
+.image-column {
+  flex: 1 1 40%;
+  text-align: right;
+}
+
+.number-img-2 {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+@media (max-width: 992px) {
+  .number-form {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .text-columns-container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .text-columns-container::before {
+    display: none;
+  }
+
+  .text-columns-container .column {
+    flex: 1 1 100%;
+    padding: 1rem 0;
+  }
+
+  .what-why-numerology {
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+
+  .image-column {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .number-img-1,
+  .number-img-2 {
+    width: 100%;
+    
+    height: auto;
+  }
+
+  .how-columns {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .text-column,
+  .image-column {
+    flex: 1 1 100%;
+    text-align: center;
+  }
+
+  .column h3 {
+    font-size: 1.6rem;
+  }
+
+  .column p,
+  .text-column {
+    font-size: 1.1rem;
+  }
+}

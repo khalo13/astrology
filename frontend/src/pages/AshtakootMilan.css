@@ -1,0 +1,541 @@
+.milan-container {
+  display: flex;
+
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 2rem;
+  background: radial-gradient(#d2c0e6, #c3b2d6);
+  border-radius: 1rem;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+  color: #f8fafc;
+  flex-wrap: wrap;
+  margin: 2rem 2rem 2rem 2rem;
+  width: 95%;
+}
+
+.milan-left,
+.milan-right {
+  flex: 1;
+  max-width: 600px;
+  padding: 2rem;
+
+  border-radius: 1rem;
+
+  color: #020005;
+}
+
+.milan-left h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  color: #01141c;
+}
+
+.milan-left h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+
+
+}
+
+.milan-left h5 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+  color: #56059c;
+  font-weight: 900;
+}
+
+.milan-left p {
+  line-height: 1.3;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: #2d3947;
+  font-weight: 400;
+  text-align: justify;
+}
+
+.milan-left ol {
+  padding-left: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.milan-left li {
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.milan-left span {
+  font-weight: bold;
+  color: #015c70;
+}
+
+.milan-left p:last-child {
+  margin-bottom: 0;
+}
+
+.milan-points-results {
+  display: flex;
+  gap: 1.3rem;
+}
+
+.milan-form-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.3rem;
+  background: linear-gradient(rgb(209, 176, 245), #abc4f6);
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(150, 100, 255, 0.15);
+  color: #e8e8ff;
+  font-family: "Poppins", sans-serif;
+  width: 130%;
+  justify-content: space-between;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(6px);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.milan-boy-form,
+.milan-girl-form {
+  flex: 1 1 45%;
+}
+
+.milan-section-title {
+  color: #22163a;
+  margin-bottom: 1rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.milan-form-divider {
+  width: 1px;
+  background-color: rgb(170, 144, 231);
+  height: auto;
+  align-self: stretch;
+}
+
+/* Labels */
+.milan-input-label {
+  display: block;
+  margin-bottom: 1.2rem;
+  color: #270344;
+  font-weight: 500;
+}
+
+/* Input Fields */
+.milan-input {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 13rem;
+  margin-top: 0.3rem;
+  font-size: 1rem;
+  background: #e3d1f8f6;
+}
+
+.milan-submit-section {
+  width: 100%;
+  text-align: center;
+}
+
+.milan-submit-btn {
+  margin-top: 1rem;
+  padding: 0.8rem 1.5rem;
+  background-color: #9120e8;
+  color: #fff;
+  border: none;
+  border-radius: 13rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  position: relative;
+  /* ✅ reset from absolute to relative/normal flow */
+}
+
+.milan-submit-btn:hover {
+  background-color: #6c5ce7;
+  color: #f7f7fa;
+}
+
+/* Location Label */
+.milan-location-label {
+  display: block;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #34495e;
+  font-family: "Segoe UI", sans-serif;
+  position: relative;
+}
+
+/* Location Input */
+.milan-input#input-place {
+  padding: 0.8rem;
+  margin-top: 0.5rem;
+  border: 1px solid #ccc;
+  font-family: "Segoe UI", sans-serif;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.milan-input#input-place:focus {
+  border-color: #6c5ce7;
+  box-shadow: 0 0 8px rgba(108, 92, 231, 0.2);
+  outline: none;
+}
+
+/* Suggestions */
+.milan-location-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #ccc;
+  border-radius: 1rem;
+  background: #e3d1f8f6;
+  max-height: 150px;
+  overflow-y: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-in-out;
+  list-style: none;
+}
+
+.milan-location-option {
+  padding: 0.8rem;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+  font-size: 0.9rem;
+  color: #34495e;
+  transition: background-color 0.2s ease;
+}
+
+.milan-location-option:last-child {
+  border-bottom: none;
+}
+
+.milan-location-option:hover {
+  background-color: #f1f1f1;
+}
+
+.milan-table-container {
+  background-color: #0b1120;
+  color: #f1f5f9;
+  padding: 2rem;
+  border-radius: 1rem;
+  background: linear-gradient(to right, #d2c0e6, #ac7be0);
+  width: 95%;
+  overflow-x: auto;
+  margin: auto;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.milan-table-container h3 {
+  text-align: center;
+  color: #310363;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.milan-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.milan-table thead {
+  background-color: #c469f5;
+}
+
+.milan-table th,
+.milan-table td {
+  padding: 1rem 1rem;
+  border: 1px solid #334155;
+  text-align: center;
+}
+
+.milan-table th {
+  color: #010236;
+  font-weight: 00;
+}
+
+.milan-table td {
+  color: #0b0116;
+  font-weight: 900;
+}
+
+/* Circular Chart Inside Guna Cell */
+.guna-with-circle {
+  display: flex;
+  align-items: center;
+  gap: 1.3rem;
+}
+
+.circular-chart {
+  width: 76px;
+  height: 76px;
+  transform: rotate(-90deg);
+}
+
+.circle-bg {
+  fill: none;
+  stroke: #334155;
+  stroke-width: 3.8;
+}
+
+.circle {
+  fill: none;
+  stroke: #b1238e;
+  /* Light blue */
+  stroke-width: 3.8;
+  stroke-linecap: round;
+  transition: stroke-dasharray 0.5s ease;
+}
+
+.percentage {
+  fill: #05000a;
+  font-size: 0.5em;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  transform: rotate(90deg);
+  transform-origin: center;
+}
+
+/* Guna Name Next to Circle */
+.guna-name {
+  font-weight: 900;
+  color: #01090f;
+}
+
+/* Summary Box */
+.milan-summary {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #1e293b;
+  border-radius: 0.75rem;
+  color: #f8fafc;
+  font-size: 1rem;
+}
+
+.milan-summary h4 {
+  color: #7dd3fc;
+}
+
+/* Reset Button */
+.reset-button {
+  background: linear-gradient(to right, #3b82f6, #06b6d4);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.6);
+  transition: all 0.3s ease;
+}
+
+.reset-button:hover {
+  background: linear-gradient(to right, #2563eb, #0891b2);
+  transform: scale(1.05);
+}
+
+.milan-blog-section {
+  margin-top: 3rem;
+  padding: 2rem;
+  width: 130%;
+}
+
+.milan-blog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.milan-blog-title {
+  font-size: 2rem;
+  color: #080346;
+  font-weight: 600;
+  margin: 0;
+  text-align: center;
+  width: 100%;
+}
+
+.milan-refresh-btn {
+  all: unset;
+  /* removes all default styles */
+  cursor: pointer;
+  font-size: 1.3rem;
+
+  transition: transform 0.4s ease-in-out;
+}
+
+.milan-refresh-btn:hover {
+  transform: rotate(180deg);
+}
+
+.milan-blog-loading {
+  text-align: center;
+  font-size: 1rem;
+  color: #ccccff;
+}
+
+.milan-blog-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-height: calc(2 * 380px);
+  /* Adjust height per card if needed */
+  overflow: hidden;
+}
+
+.milan-blog-card {
+  background-color: #8f8afe;
+  border-radius: 15px;
+  overflow: hidden;
+  text-decoration: none;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(6px);
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+.milan-blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.milan-blog-card-title {
+  font-size: 1.1rem;
+  margin: 1rem 1rem 0.5rem;
+  font-weight: 600;
+  color: #350241;
+}
+
+.milan-blog-card-excerpt {
+  font-size: 0.95rem;
+  margin: 0 1rem 1.2rem;
+  color: #010006;
+}
+@media (max-width: 768px) {
+  .milan-table-container {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    width: 90%;
+    overflow-x: auto; /* ensures table scrolls if absolutely needed */
+  }
+
+  .milan-table-container h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .milan-table {
+    width: 100%;
+    table-layout: fixed; /* helps control column width */
+    word-wrap: break-word;
+  }
+
+  .milan-table th,
+  .milan-table td {
+    padding: 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  .guna-with-circle {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .circular-chart {
+    width: 60px;
+    height: 60px;
+  }
+
+  .guna-name {
+    text-align: center;
+    font-size: 0.9rem;
+  }
+
+  .milan-summary {
+    font-size: 0.9rem;
+    padding: 0.8rem;
+    width: 100%;
+    margin: 1rem auto 0;
+  }
+
+  .milan-summary h4 {
+    font-size: 1rem;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .milan-container {
+    margin: 0.75rem;
+    padding: 1rem;
+  }
+
+  .milan-left h2 {
+    font-size: 1.4rem;
+  }
+
+  .milan-left h4,
+  .milan-left h5 {
+    font-size: 1.1rem;
+  }
+
+  .milan-left p,
+  .milan-left li {
+    font-size: 1rem;
+  }
+
+  .milan-form-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .milan-boy-form,
+  .milan-girl-form {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+  }
+
+  .milan-form-divider {
+    display: none;
+  }
+
+  .milan-blog-section {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .milan-blog-title {
+    font-size: 1.5rem;
+  }
+
+  .milan-blog-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .milan-blog-card-title {
+    font-size: 1rem;
+  }
+
+  .milan-blog-card-excerpt {
+    font-size: 0.9rem;
+  }
+}

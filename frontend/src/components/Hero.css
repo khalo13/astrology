@@ -1,0 +1,1079 @@
+.hero-wrapper {
+  padding: 2rem;
+  background: transparent;
+  min-height: 100vh;
+  position: relative;
+
+}
+
+.tagline {
+  margin-top: 2rem;
+  margin-left: 45rem;
+  flex-direction: column;
+  width: auto;
+  height: 90vh;
+
+}
+
+.tagline p {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  color: #e0d3f5;
+  font-weight: 400;
+  text-shadow: 0 0 10px rgba(193, 164, 255, 0.3);
+
+  animation: glowPulse 1s linear infinite, pulseScale 3s ease-in-out infinite;
+  transform-origin: center;
+
+}
+
+@keyframes pulseScale {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes glowPulse {
+  0% {
+    text-shadow: 0 0 10px rgba(193, 164, 255, 0.3),
+      0 0 20px rgba(193, 164, 255, 0.2), 0 0 30px rgb(223, 216, 238);
+  }
+
+  50% {
+    text-shadow: 0 0 20px rgba(193, 164, 255, 0.6),
+      0 0 30px rgba(193, 164, 255, 0.4), 0 0 40px rgb(193, 164, 255);
+  }
+
+  100% {
+    text-shadow: 0 0 10px rgba(193, 164, 255, 0.3),
+      0 0 20px rgba(193, 164, 255, 0.2), 0 0 30px rgb(193, 164, 255);
+  }
+}
+
+.explore-btn {
+  padding: 0.3rem;
+
+  background-color: #bc94e4;
+
+  color: #22163a;
+  border: none;
+  border-radius: 24px;
+
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(106, 75, 180, 0.5);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.explore-btn:hover {
+  background-color: #5d0e99;
+  color: #f6f4f8;
+}
+
+.panchang-box-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+  position: relative;
+
+  left: -2rem;
+}
+
+.hero-kundalisection-header h2,
+.rashi-scroll-wrapper h2 {
+  color: rgb(192, 189, 234);
+  text-align: center;
+  font-size: 31px;
+  word-spacing: 4px;
+}
+
+.hero-kundalisection-header h6,
+.rashi-scroll-header h6 {
+  color: rgb(192, 189, 234);
+  text-align: center;
+  font-size: 18px;
+  word-spacing: 1.3px;
+}
+
+.hero-kundalisection-header span,
+.rashi-scroll-header span {
+  word-spacing: 1.3px;
+  font-style: italic;
+  pointer-events: none;
+}
+
+.hero-kundalisection-header p {
+  margin-top: 2.2rem;
+  color: rgb(198, 218, 219);
+  text-align: justify;
+}
+
+.content-layout {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  padding: 2rem;
+
+  flex-wrap: wrap;
+  /* Wrap on small screens */
+}
+
+
+/* --- Form Panel --- */
+.form-section {
+  background: linear-gradient(to right, #d2c0e6, #654885);
+  border-radius: 18px;
+  box-shadow: 0 6px 24px rgba(42, 143, 231, 0.3);
+  /* stronger shadow for contrast */
+  padding: 2.5rem 2rem 2rem;
+  min-width: 340px;
+  max-width: 370px;
+  margin-bottom: 2rem;
+  border: 2px solid rgba(224, 220, 213, 0.7);
+  /* subtle translucent border */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  backdrop-filter: blur(8px);
+  /* glass effect for better contrast */
+}
+
+h2 {
+  color: #22163a;
+  margin-bottom: 1rem;
+}
+
+.form-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 32px rgba(42, 171, 231, 0.7);
+  background: radial-gradient(rgb(209, 176, 245), #abc4f6);
+}
+
+.form-section:hover h2,
+.form-section:hover label,
+.form-section:hover p,
+.form-section:hover .submit-btn {
+  color: #011d31;
+  border-color: #1ad3e7;
+}
+
+.form-section:hover .submit-btn {
+  background-color: #5b58f6;
+  color: #e6d3f6;
+}
+
+/* Labels */
+.kundali-form label {
+  display: block;
+  margin-bottom: 1.2rem;
+  color: #270344;
+  font-weight: 500;
+}
+
+/* Input Fields */
+.kundali-form input {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 13rem;
+  margin-top: 0.3rem;
+  font-size: 1rem;
+  background: #e3d1f8f6;
+}
+
+/* Submit Button */
+.submit-btn {
+  margin-top: 1rem;
+  padding: 0.8rem 1.5rem;
+  background-color: #9120e8;
+  color: #fff;
+  border: none;
+  border-radius: 13rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+/* Styling for the location label */
+.location-label {
+  display: block;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #34495e;
+  font-family: "Segoe UI", sans-serif;
+
+  position: relative;
+  /* positioning context for suggestions */
+}
+
+/* Styling for the input field */
+#input-place {
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 13rem;
+  font-size: 1rem;
+  font-family: "Segoe UI", sans-serif;
+  background: #e3d1f8f6;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#input-place:focus {
+  border-color: #6c5ce7;
+  box-shadow: 0 0 8px rgba(108, 92, 231, 0.2);
+  outline: none;
+}
+
+.location-suggestions {
+  position: absolute;
+  /* float over form */
+  top: 100%;
+  /* right below input */
+  left: 0;
+  width: 100%;
+  margin: 0;
+  /* no margin so no extra space */
+  padding: 0;
+  border: 1px solid #ccc;
+  border-radius: 1rem;
+  background: #e3d1f8f6;
+  max-height: 150px;
+  overflow-y: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-in-out;
+  list-style: none;
+}
+
+.location-suggestions li {
+  padding: 0.8rem;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+  font-size: 0.9rem;
+  color: #34495e;
+  transition: background-color 0.2s ease;
+}
+
+.location-suggestions li:last-child {
+  border-bottom: none;
+}
+
+.location-suggestions li:hover {
+  background-color: #f1f1f1;
+}
+
+.submit-btn:hover {
+  background-color: #6c5ce7;
+  color: #f7f7fa;
+}
+
+/* --- My Kundalis Section --- */
+#my-kundalis-section {
+  flex: 1 1 600px;
+  background: linear-gradient(to bottom, #d2c0e6, #654885);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  max-height: 60vh;
+  overflow-y: auto;
+  margin: 2rem auto;
+  width: 100%;
+  max-width: 900px;
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar width (vertical thickness) */
+#my-kundalis-section::-webkit-scrollbar {
+  width: 13px;
+  /* increase thickness */
+}
+
+/* Scrollbar track (background) */
+#my-kundalis-section::-webkit-scrollbar-track {
+  background: #c1aee4;
+  border-radius: 1rem;
+  /* 16px */
+}
+
+/* Scrollbar thumb (draggable part) */
+#my-kundalis-section::-webkit-scrollbar-thumb {
+  background-color: #5a3f87;
+  border-radius: 1rem;
+  border: 2px solid #c1aee4;
+}
+
+/* Thumb hover effect */
+#my-kundalis-section::-webkit-scrollbar-thumb:hover {
+  background-color: #5c90b5;
+}
+
+.Dasha-List h2 {
+  font-size: 2rem;
+  color: #5a3825;
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: 700;
+}
+
+#my-kundalis-section .kundali-card {
+  background: rgb(165, 160, 235);
+  border: 1.5px solid#a5cbf1;
+  border-radius: 14px;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease, background 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 2px 8px rgba(231, 130, 42, 0.07);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 90px;
+  user-select: none;
+  /* prevent text highlight on click */
+  display: grid;
+  grid-template-columns: repeat(auto-fill,
+      minmax(280px, 1fr));
+  /* Responsive columns */
+  gap: 1rem;
+}
+
+#my-kundalis-section .kundali-card:hover {
+  background: #653fbdac;
+  box-shadow: 0 6px 18px rgba(231, 130, 42, 0.13);
+  transform: translateY(-4px) scale(1.02);
+
+}
+
+
+#my-kundalis-section .kundali-card h3 {
+  margin: 0 0 0.25rem 0;
+  color: #120565;
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+#my-kundalis-section .kundali-card p {
+  margin: 0;
+  color: #11187f;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Search bar */
+.search-bar {
+  margin-bottom: 1.5rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.search-input:focus {
+  border-color: #e7862a;
+  outline: none;
+}
+
+.rashi-scroll-wrapper {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.rashi-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  position: relative;
+  flex-wrap: wrap;
+  top: 58px;
+}
+
+.features-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  justify-items: center;
+  padding: 2rem;
+}
+
+.feature-box {
+  flex-direction: column;
+  align-items: center;
+  min-width: 180px;
+  max-width: 180px;
+  text-align: center;
+  background: radial-gradient(#0a5763, #4a1582);
+  border-radius: 31px;
+  padding: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+.feature-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+
+.feature-box:hover .feature-icon,
+.feature-box:hover p {
+  filter: blur(13px);
+}
+
+.feature-icon {
+  width: 103px;
+  height: 103px;
+
+  margin-bottom: 0.5rem;
+}
+
+.feature-label {
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* The overlay that appears on hover */
+.feature-overlay {
+  position: absolute;
+  bottom: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #ffffff;
+  font-size: 0.85rem;
+  text-align: center;
+
+  border-radius: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  width: 90%;
+  z-index: 2;
+}
+
+.feature-box:hover .feature-overlay {
+  opacity: 1;
+}
+
+/* Left paragraph */
+.rashi-left {
+  flex: 1 1 45%;
+  max-width: 50%;
+  color: #e4def2;
+  font-size: 1rem;
+  line-height: 1.3;
+  margin-top: 40px;
+}
+
+.rashi-left p {
+
+  text-align: justify;
+}
+
+/* Right: h2 + grid cards */
+.rashi-right {
+  flex: 1 1 50%;
+  max-width: 50%;
+}
+
+.rashi-right h2 {
+  margin-bottom: 1rem;
+  margin-right: 3rem;
+  font-size: 2rem;
+  color: #e0d3f5;
+}
+
+/* Rashi cards */
+.rashi-scroll {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.rashi-symbol {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0.5rem;
+  border-radius: 22rem;
+  height: 130px;
+
+  width: 130px;
+}
+
+.rashi-symbol:hover {
+  cursor: pointer;
+  transform: scale(1.12);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rashi-detail {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  position: relative;
+  margin: 2rem auto;
+  font-family: "Segoe UI", sans-serif;
+  color: #333;
+}
+
+.rashi-detail h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #222;
+  text-align: center;
+}
+
+/* Planetary Orbit System CSS */
+
+.planet-orbit-system {
+  position: relative;
+  width: 600px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  float: left;
+}
+
+.sun-center {
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 160px;
+  height: 160px;
+  background: radial-gradient(circle, #ffeb3b 0%, #ff9800 70%, #ff5722 100%);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  color: #333;
+  font-size: 12px;
+  padding: 10px;
+  transition: transform 0.3s ease;
+
+  /* Glowing effect */
+  box-shadow: 0 0 20px rgba(255, 223, 70, 0.6), 0 0 40px rgba(255, 193, 7, 0.4),
+    0 0 60px rgba(255, 152, 0, 0.3);
+
+  animation: sunGlow 2.5s infinite ease-in-out;
+}
+
+@keyframes sunGlow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 90px rgba(255, 223, 70, 0.6),
+      0 0 90px rgba(255, 193, 7, 0.4), 0 0 90px rgba(255, 152, 0, 0.3);
+    transform: translate(-50%, -50%) scale(1.3);
+  }
+
+  50% {
+    box-shadow: 0 0 90px rgba(255, 223, 70, 0.8),
+      0 0 90px rgba(255, 193, 7, 0.6), 0 0 90px rgba(255, 152, 0, 0.4);
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
+.sun-center:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+  box-shadow: 0 0 40px rgba(255, 235, 59, 0.8), 0 0 80px rgba(255, 235, 59, 0.6),
+    0 0 120px rgba(255, 235, 59, 0.4);
+}
+
+.sun-center strong {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.sun-center p {
+  font-size: 13px;
+  line-height: 1.2;
+}
+
+.orbit {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  animation: orbit-glow 4s ease-in-out infinite alternate;
+}
+
+@keyframes orbit-glow {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  }
+
+  100% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+  }
+}
+
+.planet-banner {
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  background: linear-gradient(145deg,
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.05));
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 10px;
+  padding: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  top: 50%;
+  left: 50%;
+  transform-origin: 0 0;
+  animation: planetOrbit 16s linear infinite;
+}
+
+@keyframes planetOrbit {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg) translateY(-250px) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(360deg) translateY(-250px) rotate(-360deg);
+  }
+}
+
+.planet-banner strong {
+  font-size: 13px;
+  margin-bottom: 4px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.planet-banner p {
+  font-size: 13px;
+  line-height: 1.2;
+  opacity: 0.9;
+}
+
+/* Specific positioning for each planet */
+.orbit .planet-banner:nth-child(1) {
+  /* Moon */
+  background: linear-gradient(145deg, rgb(249, 247, 247), rgba(169, 169, 169));
+  border-color: rgba(192, 192, 192, 0.4);
+  transform: translate(-50%, -50%) rotate(0deg) translateY(-250px) rotate(0deg);
+  animation-delay: 0s;
+  color: black;
+}
+
+.orbit .planet-banner:nth-child(2) {
+  /* Mars */
+  background: linear-gradient(145deg, rgb(175, 4, 4), rgb(108, 55, 66));
+  border-color: rgba(255, 69, 0, 0.4);
+  transform: translate(-50%, -50%) rotate(45deg) translateY(-250px) rotate(-45deg);
+  animation-delay: -2s;
+}
+
+.orbit .planet-banner:nth-child(3) {
+  /* Mercury */
+  background: linear-gradient(145deg, rgb(22, 126, 12), rgb(7, 49, 3));
+  border-color: rgba(255, 215, 0, 0.4);
+  transform: translate(-50%, -50%) rotate(90deg) translateY(-250px) rotate(-90deg);
+  animation-delay: -4s;
+}
+
+.orbit .planet-banner:nth-child(4) {
+  /* Jupiter */
+  background: linear-gradient(rgb(221, 196, 6), rgb(247, 251, 6));
+  border-color: rgba(255, 140, 0, 0.4);
+  transform: translate(-50%, -50%) rotate(135deg) translateY(-250px) rotate(-135deg);
+  animation-delay: -6s;
+  color: black;
+}
+
+.orbit .planet-banner:nth-child(5) {
+  /* Venus */
+  background: linear-gradient(145deg, rgba(255, 20, 147), rgba(255, 105, 180));
+  border-color: rgba(255, 20, 147, 0.4);
+  transform: translate(-50%, -50%) rotate(180deg) translateY(-250px) rotate(-180deg);
+  animation-delay: -8s;
+}
+
+.orbit .planet-banner:nth-child(6) {
+  /* Saturn */
+  background: linear-gradient(145deg, rgb(9, 14, 113), rgb(31, 87, 160));
+  border-color: rgba(128, 128, 0, 0.4);
+  transform: translate(-50%, -50%) rotate(225deg) translateY(-250px) rotate(-225deg);
+  animation-delay: -10s;
+}
+
+.orbit .planet-banner:nth-child(7) {
+  /* Rahu */
+  background: linear-gradient(145deg, rgb(0, 54, 130), rgb(43, 183, 226));
+  border-color: rgba(75, 0, 130, 0.4);
+  transform: translate(-50%, -50%) rotate(270deg) translateY(-250px) rotate(-270deg);
+  animation-delay: -12s;
+}
+
+.orbit .planet-banner:nth-child(8) {
+  /* Ketu */
+  background: linear-gradient(145deg, rgba(139, 69, 19), rgba(160, 82, 45));
+  border-color: rgba(139, 69, 19, 0.4);
+  transform: translate(-50%, -50%) rotate(315deg) translateY(-250px) rotate(-315deg);
+  animation-delay: -14s;
+}
+
+/* Add sparkle effect */
+.planet-orbit-system::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(2px 2px at 100px 150px, #fff, transparent),
+    radial-gradient(2px 2px at 400px 200px, #fff, transparent),
+    radial-gradient(1px 1px at 200px 350px, #fff, transparent),
+    radial-gradient(1px 1px at 450px 400px, #fff, transparent),
+    radial-gradient(2px 2px at 150px 450px, #fff, transparent);
+  animation: sparkle 4s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@media (max-width: 760px) {
+
+  html,
+  body {
+    width: 100vw;
+    overflow-x: hidden;
+  }
+
+  .tagline {
+    display: flex;
+    flex-direction: column-reverse;
+    /* Moves PanchangBox below the text */
+    margin-left: 0;
+    /* Override large left margin */
+    width: 100%;
+    height: auto;
+    align-items: center;
+    text-align: center;
+    padding: 0 1rem;
+    margin-top: 25em;
+  }
+
+  .panchang-box-wrapper {
+    margin-top: 1.5rem;
+    left: 0;
+
+  }
+
+  .tagline p {
+    font-size: 1.1rem;
+    line-height: 1.6rem;
+    padding: 0.5rem 0;
+  }
+
+  .explore-btn {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.7rem 0;
+    margin-top: 1rem;
+  }
+
+  .hero-kundalisection-header h2,
+  .rashi-scroll-wrapper h2 {
+    font-size: 1.2rem;
+    padding: 0 0.5rem;
+    text-align: center;
+  }
+
+  .hero-kundalisection-header h6,
+  .rashi-scroll-header h6 {
+    font-size: 1rem;
+    padding: 0 0.5rem;
+    text-align: center;
+  }
+
+  .hero-kundalisection-header p {
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    padding: 0 0.5rem;
+    text-align: justify;
+  }
+
+  .content-layout {
+    flex-direction: column !important;
+    gap: 1rem;
+    padding: 0.5rem;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .form-section {
+    min-width: unset;
+    max-width: 100%;
+    padding: 1.3rem;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    box-sizing: border-box;
+  }
+
+  .kundali-form label {
+    margin-bottom: 0.7rem;
+    font-size: 0.95rem;
+  }
+
+  .kundali-form input,
+  #input-place {
+    font-size: 0.95rem;
+    padding: 0.5rem;
+    border-radius: 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 0.7rem 0;
+    font-size: 1rem;
+    margin-top: 1rem;
+  }
+
+  .location-label {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+
+  .location-suggestions {
+    font-size: 0.9rem;
+    max-height: 100px;
+    width: 100%;
+  }
+
+  #my-kundalis-section {
+    padding: 1rem;
+    border-radius: 0.7rem;
+    max-width: 78%;
+    margin: 0;
+    max-height: 40vh;
+    box-sizing: border-box;
+
+
+  }
+
+  #my-kundalis-section .kundali-card {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0.6rem 0.6rem;
+    font-size: 0.9rem;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: rgba(167, 169, 242, 0.91);
+    /* optional soft background */
+    border-radius: 0.5rem;
+    margin-bottom: 12px;
+
+  }
+
+  #my-kundalis-section .kundali-card h3 {
+    font-size: 1rem;
+  }
+
+  #my-kundalis-section .kundali-card p {
+    font-size: 0.85rem;
+  }
+
+  .search-bar {
+    margin-bottom: 1rem;
+  }
+
+  .search-input {
+    font-size: 0.95rem;
+    padding: 0.5rem;
+    border-radius: 0.4rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+.features-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Always two in a row */
+  gap: 1rem;
+  padding: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 -33px
+}
+
+
+.feature-box {
+
+  width: 100%; /* ensures grid column width control */
+  padding: 1rem;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.05); /* optional background */
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.feature-icon {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 1rem;
+}
+
+  .feature-label {
+    font-size: 0.9rem;
+  }
+
+  .feature-overlay {
+    display: none;
+  }
+
+  .rashi-scroll-wrapper {
+    margin-top: 1.5rem;
+    width: 100%;
+  }
+
+  .rashi-section {
+    flex-direction: column !important;
+    gap: 1rem;
+    top: 0;
+    width: 100%;
+    align-items: stretch;
+    margin-top: 22px;
+  }
+
+  .rashi-left,
+  .rashi-right {
+    max-width: 100%;
+    flex: 1 1 100%;
+    margin-top: 0;
+    font-size: 0.95rem;
+    padding: 0 0.5rem;
+    box-sizing: border-box;
+  }
+
+  .rashi-right h2 {
+    font-size: 1.1rem;
+    margin-right: 0;
+  }
+
+  .rashi-scroll {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .rashi-symbol {
+    font-size: 1.2rem;
+    width: 70px;
+    height: 70px;
+    margin-bottom: 0.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .rashi-detail {
+    padding: 1rem 0.5rem;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .rashi-detail h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .blog-section{
+    margin:0;
+  }
+}
+
+@media (max-width: 768px) {
+  .planet-orbit-system {
+    width: 350px;
+    height: 300px;
+  }
+
+  .sun-center {
+    width: 90px;
+    height: 90px;
+    font-size: 10px;
+    padding: 6px;
+  }
+
+  .sun-center strong {
+    font-size: 12px;
+  }
+
+  .sun-center p {
+    font-size: 10px;
+  }
+
+  .orbit {
+    width: 280px;
+    height: 280px;
+  }
+
+  .planet-banner {
+    width: 65px;
+    height: 65px;
+    font-size: 7px;
+    padding: 4px;
+  }
+
+  .planet-banner strong {
+    font-size: 9px;
+  }
+
+  .planet-banner p {
+    font-size: 8px;
+    line-height: 1.1;
+  }
+
+  @keyframes planetOrbit {
+    from {
+      transform: translate(-50%, -50%) rotate(0deg) translateY(-150px) rotate(0deg);
+    }
+
+    to {
+      transform: translate(-50%, -50%) rotate(360deg) translateY(-150px) rotate(-360deg);
+    }
+  }
+
+
+}

@@ -1,0 +1,475 @@
+.gemstone-form-section-content {
+  display: flex;
+  justify-content: space-between;
+  /* pushes left and right to edges */
+  gap: 2rem;
+  align-items: flex-start;
+  margin-top: 1.5rem;
+}
+
+
+
+.gem-img {
+
+  border-radius: 8px;
+  margin-bottom: 1rem;
+
+}
+
+
+
+.gemstone-right {
+
+  margin-right: 76px;
+
+}
+
+.gemstone-types-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+  justify-content: space-between;
+
+}
+
+
+.gemstone-table-section {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  padding: 0 7rem;
+  color: rgb(13, 1, 1);
+
+}
+
+.gemstone-table {
+  width: 1300px;
+  border-collapse: collapse;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  overflow: hidden;
+
+}
+
+.gemstone-table th,
+.gemstone-table td {
+  padding: 1rem;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.gemstone-table thead {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.gemstone-table th {
+  color: #06010c;
+  font-weight: bold;
+}
+
+.gemstone-table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.07);
+}
+
+.gemstone-result-section {
+  background: radial-gradient(#e6d1fb, #d5bde9);
+  padding: 40px;
+  border-radius: 12px;
+  color: rgb(20, 1, 1);
+  margin: 50px auto;
+  width: 90%;
+
+  box-shadow: 0 0 20px rgba(161, 3, 253, 0.15);
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.gemstone-result-section h2 {
+  text-align: center;
+  color: #14051d;
+  margin: 50px;
+  font-size: 2rem;
+}
+
+.gem-block {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 25px 30px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  text-align: justify;
+}
+
+.gem-block h4 {
+  color: #1e1903;
+  margin-bottom: 10px;
+}
+
+.gem-block p {
+  margin: 8px 0;
+  line-height: 1.6;
+  font-size: 16px;
+
+}
+
+.gemstone-result-section button {
+  background-color: #a103fd;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.gemstone-result-section button:hover {
+  background-color: #8802cc;
+  transform: scale(1.05);
+}
+
+
+.gemstone-display-img {
+  max-width: 120px;
+  height: auto;
+  margin: 10px auto;
+  display: block;
+}
+
+.gemstone-summary-row {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40px;
+  flex-wrap: wrap;
+  /* optional, to handle small screens */
+}
+
+.gemstone-summary-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+  margin: 0 10px;
+}
+
+.gemstone-display-img {
+  width: 150px;
+  height: 130px;
+
+}
+
+.gem-summary-table {
+  max-width: 350px;
+  margin: 10px;
+  border-collapse: collapse;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+
+  color: #040000;
+
+  /* Add this line for table border */
+  border: 1px solid rgba(136, 7, 242, 0.279);
+}
+
+.gem-summary-table td {
+  padding: 10px 12px;
+  border: 1px solid rgba(136, 7, 242, 0.279);
+}
+
+.gem-summary-table td:first-child {
+  color: #080600;
+  font-weight: bold;
+  width: 40%;
+}
+
+.gem-summary-table td:last-child {
+  color: #0a0000;
+}
+
+.gem-summary-table tr:last-child td {
+  border-bottom: none;
+}
+
+@media (max-width: 768px) {
+  .gemstone-result-section {
+    padding: 25px;
+    width: 95%;
+    margin: 30px auto;
+  }
+
+  .gemstone-result-section h2 {
+    font-size: 1.6rem;
+    margin: 30px 0;
+  }
+
+  .gemstone-summary-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .gemstone-summary-column {
+    width: 80%;
+    margin: 15px 0;
+  }
+
+  .gem-block {
+    padding: 18px;
+  }
+
+  .gem-block p {
+    font-size: 14.5px;
+  }
+
+  .gem-summary-table {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .gemstone-display-img {
+    width: 120px;
+    height: auto;
+  }
+
+  .gemstone-result-section button {
+    width: 100%;
+    font-size: 15px;
+    padding: 10px 20px;
+    margin-top: 20px;
+  }
+  .line-gem{
+    display: none;
+  }
+}
+
+.gemstone-how-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.gemstone-how-text {
+  margin: 100px;
+  margin-top: 20px;
+  text-align: justify;
+  color: white;
+}
+
+.gemstone-how-text h2 {
+  color: white;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.gemstone-how-text p {
+  font-size: 16.5px;
+  line-height: 1.7;
+}
+
+
+/* Optional: fade in effect */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.below-form {
+  margin-top: 20px;
+  margin: 22px;
+  padding: 40px;
+  text-align: justify;
+  color: white;
+}
+
+.below-form h2 {
+  color: white;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.below-form p {
+  color: white;
+  text-align: center;
+}
+
+.below-form p+p {
+  margin-top: 31px;
+  font-size: 16.5px;
+  text-align: justify;
+}
+
+.gem-img-inline-mobile {
+  display: none;
+}
+
+.gemstone-type-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  margin: 100px;
+  margin-top: 20px;
+  color: white;
+  text-align: justify;
+}
+
+.gemstone-type-text {
+  flex: 1;
+  font-size: 16.5px;
+}
+
+.gemstone-type-text h2 {
+  text-align: center;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.gemstone-type-block {
+  margin-bottom: 1.5rem;
+}
+
+.gemstone-type-block h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  color: #f3e5ff;
+}
+
+@media (max-width: 768px) {
+  .gemstone-type-section {
+    flex-direction: column;
+    margin: 1rem;
+    gap: 1.5rem;
+  }
+
+  .gemstone-right-image {
+    order: -1;
+    /* Moves the image to the top */
+    text-align: center;
+  }
+
+  .gem-img2 {
+    width: 16rem;
+
+    margin: 0 4rem;
+  }
+
+  .gemstone-type-text {
+    font-size: 14px;
+    margin: 0;
+    padding: 0 1rem;
+  }
+
+  .gemstone-type-text h2 {
+    font-size: 1.1rem;
+  }
+
+  .gemstone-type-block {
+    margin-bottom: 1.2rem;
+  }
+}
+
+
+
+
+@media (max-width: 768px) {
+  .gemstone-form-section-content {
+    flex-direction: column-reverse;
+    gap: 1rem;
+  }
+
+  .gemstone-right {
+    margin: 0;
+    margin-left: 58px;
+  }
+
+  .gemstone-form-section-content {
+    flex-direction: column-reverse;
+    gap: 1.5rem;
+  }
+
+  .below-form {
+    margin: 163x;
+    padding: 13px;
+    text-align: left;
+  }
+
+  .gemstone-how-section {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 1rem;
+  }
+
+  .gemstone-left img {
+    width: 140px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .gemstone-how-text {
+    margin: 0;
+    padding: 0 1rem;
+    text-align: justify;
+  }
+
+  .gemstone-how-text h2 {
+    font-size: 1.1rem;
+    margin-top: 1rem;
+  }
+
+  .gemstone-how-text p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+
+  .gem-img-inline {
+    display: inline-block;
+    width: 120px;
+    height: auto;
+    margin: 1rem auto;
+    display: block;
+  }
+
+  .gem-img {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .gemstone-table-section {
+    padding: 0 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .gemstone-table {
+    width: 100%;
+    font-size: 10px;
+    color: white;
+  }
+
+  .gemstone-table th {
+    color: wheat;
+  }
+
+  .gemstone-table th,
+  .gemstone-table td {
+    padding: 0.5rem;
+
+
+  }
+
+  .gemstone-table th {
+    font-size: 13px;
+  }
+}
